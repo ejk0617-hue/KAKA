@@ -61,7 +61,7 @@
   .num{font-variant-numeric:tabular-nums; font-family:var(--font-num);}
 
   /* ---------- shell ---------- */
-  .shell{display:grid; grid-template-columns:236px 1fr; min-height:100vh;}
+  .shell{display:grid; grid-template-columns:236px minmax(0,1fr); min-height:100vh;}
   @media (max-width:820px){ .shell{grid-template-columns:1fr;} }
 
   .sidebar{
@@ -85,7 +85,7 @@
     box-shadow:var(--shadow-sm);
   }
   .brand-text{display:flex; flex-direction:column; line-height:1.15;}
-  .brand-text b{font-size:18px; font-weight:800; letter-spacing:-0.2px;}
+  .brand-text b{font-size:clamp(16px,4.2vw,18px); font-weight:800; letter-spacing:-0.2px;}
   .brand-text span{font-size:10px; letter-spacing:1.5px; color:var(--ink-faint); font-weight:700;}
 
   .sidebar-nav{display:flex; flex-direction:column; gap:4px;}
@@ -111,12 +111,12 @@
 
   .sidebar-foot{margin-top:auto; display:flex; flex-direction:column; gap:12px; font-size:11.5px; color:var(--ink-faint); border-top:1px dashed var(--border); padding-top:14px;}
 
-  .main{padding:30px 34px 60px; max-width:1240px;}
+  .main{padding:30px 34px 60px; max-width:1240px; min-width:0;}
   @media (max-width:820px){ .main{padding:20px 16px 50px;} }
 
   .page-head{display:flex; align-items:flex-end; justify-content:space-between; gap:16px; margin-bottom:22px; flex-wrap:wrap;}
-  .page-head h1{font-size:25px; font-weight:800; letter-spacing:-0.3px;}
-  .page-head p{margin:4px 0 0; color:var(--ink-soft); font-size:13.5px;}
+  .page-head h1{font-size:clamp(20px,5.5vw,25px); font-weight:800; letter-spacing:-0.3px;}
+  .page-head p{margin:4px 0 0; color:var(--ink-soft); font-size:clamp(12.5px,3.2vw,13.5px);}
 
   .btn{
     display:inline-flex; align-items:center; gap:7px;
@@ -152,12 +152,12 @@
   }
   .stat-tile.alt .ic{background:var(--coral-tint);}
   .stat-tile.gold .ic{background:var(--gold-tint);}
-  .stat-tile b{display:block; font-size:20px; font-weight:800; letter-spacing:-.3px;}
-  .stat-tile span{font-size:12px; color:var(--ink-soft); font-weight:600;}
+  .stat-tile b{display:block; font-size:clamp(17px,4.5vw,20px); font-weight:800; letter-spacing:-.3px;}
+  .stat-tile span{font-size:clamp(11px,2.8vw,12px); color:var(--ink-soft); font-weight:600;}
 
   /* ---------- trip section / cards ---------- */
   .eyebrow{font-size:12px; font-weight:800; color:var(--ink-faint); text-transform:uppercase; letter-spacing:.6px; margin-bottom:10px;}
-  .trip-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:14px;}
+  .trip-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(min(300px,100%),1fr)); gap:14px;}
 
   .ticket{
     display:flex; background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-md);
@@ -182,7 +182,7 @@
   .ticket.intl .ticket-stub .dday{color:var(--coral-deep);}
   .ticket-body{flex:1; padding:13px 15px; min-width:0; display:flex; flex-direction:column; gap:6px;}
   .ticket-body .place{font-size:11px; font-weight:700; color:var(--ink-faint); letter-spacing:.4px; text-transform:uppercase;}
-  .ticket-body h3{font-size:15.5px; font-weight:800; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
+  .ticket-body h3{font-size:clamp(14px,4vw,15.5px); font-weight:800; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
   .ticket-body .dates{font-size:12px; color:var(--ink-soft);}
   .ticket-meta{display:flex; gap:8px; margin-top:2px; flex-wrap:wrap;}
   .pill{font-size:11px; font-weight:700; padding:3px 9px; border-radius:20px; background:var(--surface-alt); color:var(--ink-soft); display:inline-flex; align-items:center; gap:4px;}
@@ -213,18 +213,19 @@
   .photo-edit{position:absolute; bottom:-4px; right:-4px; width:24px; height:24px; border-radius:50%; background:var(--surface); border:1px solid var(--border); display:flex; align-items:center; justify-content:center; font-size:11px; box-shadow:var(--shadow-sm); cursor:pointer;}
   .photo-remove{position:absolute; top:-6px; right:-6px; width:20px; height:20px; font-size:10px; border-radius:50%;}
   .trip-head .info{flex:1; min-width:220px;}
-  .trip-head h1{font-size:21px; font-weight:800; margin-bottom:4px; display:flex; align-items:center; gap:8px;}
-  .trip-head .meta-line{color:var(--ink-soft); font-size:13px; display:flex; align-items:center; gap:10px; flex-wrap:wrap;}
+  .trip-head h1{font-size:clamp(17px,4.8vw,21px); font-weight:800; margin-bottom:4px; display:flex; align-items:center; gap:8px; flex-wrap:wrap;}
+  .trip-head .meta-line{color:var(--ink-soft); font-size:clamp(12px,3.2vw,13px); display:flex; align-items:center; gap:10px; flex-wrap:wrap;}
   .trip-head .companions{display:flex; align-items:center; gap:6px; flex-wrap:wrap; margin-top:10px;}
   .chip{background:var(--surface-alt); color:var(--ink-soft); font-size:12px; font-weight:700; padding:4px 10px; border-radius:20px;}
   .chip.me{background:var(--teal-tint); color:var(--teal-deep);}
 
-  .detail-grid{display:grid; grid-template-columns:1fr 330px; gap:20px; align-items:start;}
-  @media (max-width:900px){ .detail-grid{grid-template-columns:1fr;} }
+  .detail-grid{display:grid; grid-template-columns:minmax(0,1fr) 330px; gap:20px; align-items:start;}
+  @media (max-width:900px){ .detail-grid{grid-template-columns:minmax(0,1fr);} }
+  .main-col{min-width:0;}
 
   .card{background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-lg); padding:20px 22px; box-shadow:var(--shadow-sm);}
   .card-head{display:flex; align-items:center; justify-content:space-between; margin-bottom:14px; gap:10px; flex-wrap:wrap;}
-  .card-head h2{font-size:15.5px; font-weight:800; display:flex; align-items:center; gap:7px;}
+  .card-head h2{font-size:clamp(14px,3.8vw,15.5px); font-weight:800; display:flex; align-items:center; gap:7px;}
 
   /* ---------- itinerary spreadsheet ---------- */
   .sheet-wrap{overflow-x:auto; border:1px solid var(--border); border-radius:var(--radius-md);}
@@ -289,7 +290,7 @@
 
   .lock-card{max-width:360px; margin:40px auto 0; text-align:center;}
   .lock-emoji{font-size:42px; margin-bottom:6px;}
-  .lock-card h2{font-size:18px; font-weight:800; margin-bottom:4px;}
+  .lock-card h2{font-size:clamp(16px,5vw,18px); font-weight:800; margin-bottom:4px;}
   .lock-card p{font-size:13px; color:var(--ink-soft); margin-bottom:18px;}
   .lock-card form{display:flex; flex-direction:column; gap:10px;}
   .lock-card input[type=password]{border:1px solid var(--border); border-radius:var(--radius-sm); padding:10px 12px; font-size:13.5px; background:var(--paper); color:var(--ink); text-align:center;}
@@ -332,7 +333,7 @@
   /* ---------- form / modal ---------- */
   .overlay{position:fixed; inset:0; background:rgba(13,25,30,.45); backdrop-filter:blur(2px); display:flex; align-items:center; justify-content:center; padding:20px; z-index:50;}
   .modal{background:var(--surface); border-radius:var(--radius-lg); padding:24px; width:100%; max-width:440px; max-height:88vh; overflow-y:auto; box-shadow:var(--shadow-md);}
-  .modal h2{font-size:17px; font-weight:800; margin-bottom:16px; display:flex; align-items:center; gap:8px;}
+  .modal h2{font-size:clamp(15.5px,4.5vw,17px); font-weight:800; margin-bottom:16px; display:flex; align-items:center; gap:8px;}
   .field{margin-bottom:14px;}
   .field label{display:block; font-size:12.5px; font-weight:700; color:var(--ink-soft); margin-bottom:6px;}
   .field .hint{font-size:11px; color:var(--ink-faint); margin-top:4px;}
