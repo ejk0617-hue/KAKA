@@ -347,30 +347,30 @@
   @media (max-width:1100px){ .split-row{grid-template-columns:1fr 1fr;} }
   @media (max-width:700px){ .split-row{grid-template-columns:1fr;} }
 
-  .resto-item{display:flex; align-items:flex-start; gap:10px; padding:11px 0; border-bottom:1px dashed var(--border);}
+  .resto-item{display:flex; align-items:center; flex-wrap:wrap; gap:8px 10px; padding:11px 0; border-bottom:1px dashed var(--border);}
   .resto-item:last-child{border-bottom:none;}
-  .resto-item .resto-main{min-width:0; flex:1; display:flex; flex-direction:column; gap:5px;}
-  .resto-item .resto-name-input{font-size:13px; font-weight:700;}
-  .resto-item .resto-actions{display:flex; align-items:center; gap:5px; flex:none; padding-top:2px;}
+  .resto-item .resto-name-input{font-size:14px; font-weight:800; flex:1 1 90px; min-width:70px;}
+  .resto-item .resto-add-inline{flex:none;}
+  .resto-item .resto-actions{display:flex; align-items:center; gap:4px; flex:none;}
 
   .resto-tab-nav{display:flex; align-items:center; gap:6px;}
   .resto-tab-label{font-size:11.5px; font-weight:800; color:var(--ink-soft); min-width:30px; text-align:center; font-variant-numeric:tabular-nums;}
 
-  .resto-menu-list{display:flex; flex-direction:column; gap:3px;}
-  .resto-menu-row{display:flex; align-items:center; gap:3px; background:var(--teal-tint); border-radius:8px; padding:2px 3px 2px 9px;}
-  .resto-menu-row .rm-name{flex:1; min-width:0; font-size:11.5px; font-weight:700; color:var(--teal-deep);}
-  .resto-menu-row .rm-price{width:64px; flex:none; font-size:11px; color:var(--teal-deep); text-align:right;}
-  .resto-menu-row .rm-del{border:none; background:transparent; color:var(--teal-deep); opacity:.55; font-size:9px; width:16px; height:16px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; flex:none;}
+  .resto-menu-list{display:flex; flex-direction:row; flex-wrap:wrap; gap:6px; flex:2 1 auto; align-items:center;}
+  .resto-menu-row{display:inline-flex; align-items:center; gap:2px; background:var(--teal-tint); border-radius:20px; padding:4px 4px 4px 12px; flex:none;}
+  .resto-menu-row .rm-name{flex:none; width:88px; font-size:13px; font-weight:700; color:var(--teal-deep);}
+  .resto-menu-row .rm-price{width:74px; flex:none; font-size:13.5px; font-weight:800; color:var(--teal-deep); text-align:right;}
+  .resto-menu-row .rm-del{border:none; background:transparent; color:var(--teal-deep); opacity:.55; font-size:9px; width:18px; height:18px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; flex:none;}
   .resto-menu-row .rm-del:hover{opacity:1; background:rgba(255,255,255,.5);}
-  .resto-menu-add{display:flex; gap:4px;}
-  .resto-menu-add input{min-width:0; border:1px solid var(--glass-border); border-radius:8px; padding:5px 8px; font-size:11.5px; background:var(--glass-soft); color:var(--ink);}
+  .resto-menu-add{display:flex; gap:4px; flex:1 1 100%; margin-top:6px;}
+  .resto-menu-add input{min-width:0; border:1px solid var(--glass-border); border-radius:8px; padding:5px 8px; font-size:12.5px; background:var(--glass-soft); color:var(--ink);}
   .resto-menu-add input[name="mname"]{flex:1;}
-  .resto-menu-add input[name="mprice"]{width:64px; flex:none;}
+  .resto-menu-add input[name="mprice"]{width:74px; flex:none;}
   .resto-menu-add input:focus{outline:none; border-color:var(--teal); background:var(--glass-strong);}
   .resto-menu-add button{border:none; background:var(--surface-alt); color:var(--ink-soft); width:24px; height:24px; border-radius:7px; font-size:12px; flex:none;}
   .resto-menu-add button:hover{background:var(--teal-tint); color:var(--teal-deep);}
 
-  .note-box textarea{width:100%; border:1px solid var(--glass-border); border-radius:var(--radius-sm); padding:10px 12px; font-size:13px; background:var(--glass-soft); color:var(--ink); resize:vertical; min-height:70px;}
+  .note-box textarea{width:100%; border:1px solid var(--glass-border); border-radius:var(--radius-sm); padding:10px 12px; font-size:13px; background:var(--glass-soft); color:var(--ink); resize:none; min-height:70px; overflow:hidden;}
 
   .lock-card{max-width:360px; margin:40px auto 0; text-align:center;}
   .lock-emoji{font-size:42px; margin-bottom:6px;}
@@ -445,9 +445,11 @@
   .simple-itin-group{margin-bottom:16px;}
   .simple-itin-group:last-child{margin-bottom:0;}
   .simple-itin-date{font-size:11.5px; font-weight:800; color:var(--ink-faint); text-transform:uppercase; letter-spacing:.5px; margin-bottom:6px; padding-bottom:6px; border-bottom:1.5px dashed var(--border);}
-  .simple-itin-row{display:flex; align-items:baseline; gap:12px; padding:7px 2px;}
-  .simple-itin-row .time{font-weight:800; font-size:13.5px; color:var(--teal-deep); min-width:92px; flex:none;}
+  .simple-itin-row{display:flex; align-items:flex-start; gap:12px; padding:7px 2px;}
+  .simple-itin-row .time{font-weight:800; font-size:13.5px; color:var(--teal-deep); min-width:92px; flex:none; padding-top:1px;}
+  .simple-itin-row .place-wrap{display:flex; flex-direction:column; gap:2px; min-width:0;}
   .simple-itin-row .place{font-size:13.5px; font-weight:700; color:var(--ink);}
+  .simple-itin-row .detail{font-size:12px; color:var(--ink-soft);}
 
   @media (prefers-reduced-motion: reduce){ *{transition:none !important;} }
 </style>
@@ -547,7 +549,7 @@
       });
     });
   }
-  var LOCKED_FIELDS = ["name","place","companions","currency","mapUrl","photo","itinerary","expenses","restaurants","cafes","note"];
+  var LOCKED_FIELDS = ["name","place","companions","currency","mapUrl","photo","itinerary","expenses","restaurants","cafes","note","budgetPerPerson"];
   function reencryptAndStore(tripId){
     var view = unlockedData[tripId];
     var keyInfo = unlockedKeys[tripId];
@@ -1232,27 +1234,27 @@
     {key:"cafes", label:"카페", icon:"☕", empty:"가보고 싶은 카페를 기록해보세요.", namePlaceholder:"카페 이름"}
   ];
 
-  function restoItemHtml(t, r, listKey){
+  function restoItemHtml(t, r, listKey, idx, total){
     var menus = normalizeMenus(r);
     return '<div class="resto-item">' +
-      '<div class="resto-main">' +
-        '<input class="inline-field resto-name-input" type="text" value="'+esc(r.name)+'" placeholder="이름" data-cell data-kind="resto" data-field="name" data-trip="'+t.id+'" data-item="'+r.id+'" data-list="'+listKey+'">' +
-        '<div class="resto-menu-list">' +
-          menus.map(function(m, mi){
-            return '<div class="resto-menu-row">' +
-              '<input class="inline-field rm-name" type="text" value="'+esc(m.name)+'" placeholder="메뉴명" data-cell data-kind="restomenu" data-field="name" data-trip="'+t.id+'" data-item="'+r.id+'" data-mi="'+mi+'" data-list="'+listKey+'">' +
-              '<input class="inline-field rm-price" type="text" value="'+esc(m.price||"")+'" placeholder="가격" data-cell data-kind="restomenu" data-field="price" data-trip="'+t.id+'" data-item="'+r.id+'" data-mi="'+mi+'" data-list="'+listKey+'">' +
-              '<button type="button" class="rm-del" data-action="deleteRestoMenu" data-trip="'+t.id+'" data-item="'+r.id+'" data-mi="'+mi+'" data-list="'+listKey+'" title="삭제">✕</button>' +
-            '</div>';
-          }).join('') +
-        '</div>' +
-        '<form class="resto-menu-add" data-action="submitAddRestoMenu" data-trip="'+t.id+'" data-item="'+r.id+'" data-list="'+listKey+'">' +
-          '<input type="text" name="mname" placeholder="+ 대표 메뉴 이름" required>' +
-          '<input type="text" name="mprice" placeholder="가격">' +
-          '<button type="submit" title="추가">＋</button>' +
-        '</form>' +
+      '<input class="inline-field resto-name-input" type="text" value="'+esc(r.name)+'" placeholder="이름" data-cell data-kind="resto" data-field="name" data-trip="'+t.id+'" data-item="'+r.id+'" data-list="'+listKey+'">' +
+      '<div class="resto-menu-list">' +
+        menus.map(function(m, mi){
+          return '<div class="resto-menu-row">' +
+            '<input class="inline-field rm-name" type="text" value="'+esc(m.name)+'" placeholder="메뉴명" data-cell data-kind="restomenu" data-field="name" data-trip="'+t.id+'" data-item="'+r.id+'" data-mi="'+mi+'" data-list="'+listKey+'">' +
+            '<input class="inline-field rm-price money-input" type="text" inputmode="numeric" value="'+(m.price?esc(m.price):"")+'" placeholder="가격" data-cell data-kind="restomenu" data-field="price" data-trip="'+t.id+'" data-item="'+r.id+'" data-mi="'+mi+'" data-list="'+listKey+'">' +
+            '<button type="button" class="rm-del" data-action="deleteRestoMenu" data-trip="'+t.id+'" data-item="'+r.id+'" data-mi="'+mi+'" data-list="'+listKey+'" title="삭제">✕</button>' +
+          '</div>';
+        }).join('') +
       '</div>' +
+      '<form class="resto-menu-add" data-action="submitAddRestoMenu" data-trip="'+t.id+'" data-item="'+r.id+'" data-list="'+listKey+'">' +
+        '<input type="text" name="mname" placeholder="+ 대표 메뉴 이름" required>' +
+        '<input type="text" inputmode="numeric" class="money-input" name="mprice" placeholder="가격">' +
+        '<button type="submit" title="추가">＋</button>' +
+      '</form>' +
       '<div class="resto-actions">' +
+        '<button class="icon-btn sm" data-action="moveRestaurant" data-dir="-1" data-trip="'+t.id+'" data-item="'+r.id+'" data-list="'+listKey+'" '+(idx===0?"disabled":"")+' title="위로 이동">▲</button>' +
+        '<button class="icon-btn sm" data-action="moveRestaurant" data-dir="1" data-trip="'+t.id+'" data-item="'+r.id+'" data-list="'+listKey+'" '+(idx===total-1?"disabled":"")+' title="아래로 이동">▼</button>' +
         '<button class="icon-btn sm" data-action="deleteRestaurant" data-trip="'+t.id+'" data-item="'+r.id+'" data-list="'+listKey+'" title="삭제">✕</button>' +
       '</div>' +
     '</div>';
@@ -1273,11 +1275,11 @@
         '</div>' +
       '</div>' +
       (list.length===0 ? '<div class="empty" style="padding:18px 10px;"><span class="big">'+tab.icon+'</span>'+tab.empty+'</div>' :
-        list.map(function(r){ return restoItemHtml(t, r, tab.key); }).join('')
+        list.map(function(r,i){ return restoItemHtml(t, r, tab.key, i, list.length); }).join('')
       ) +
       '<form class="exp-add" data-action="submitRestaurant" data-trip="'+t.id+'" data-list="'+tab.key+'">' +
         '<input type="text" name="name" placeholder="'+tab.namePlaceholder+'" required>' +
-        '<div class="row2"><input type="text" name="menu" placeholder="대표 메뉴 (나중에 더 추가 가능)"><input type="text" name="price" placeholder="가격"></div>' +
+        '<div class="row2"><input type="text" name="menu" placeholder="대표 메뉴 (나중에 더 추가 가능)"><input type="text" inputmode="numeric" class="money-input" name="price" placeholder="가격"></div>' +
         '<button class="btn btn-primary btn-sm" type="submit">＋ '+tab.label+' 추가</button>' +
       '</form>' +
     '</div>';
@@ -1436,7 +1438,10 @@
         return '<div class="simple-itin-group"><div class="simple-itin-date">'+label+'</div>' +
           groups[d].map(function(r){
             var timeLabel = r.dep ? (r.dep + (r.arr? " – "+r.arr : "")) : (r.arr || "-");
-            return '<div class="simple-itin-row"><span class="time num">'+esc(timeLabel)+'</span><span class="place">'+esc(r.place||"장소 미정")+'</span></div>';
+            return '<div class="simple-itin-row"><span class="time num">'+esc(timeLabel)+'</span>' +
+              '<span class="place-wrap"><span class="place">'+esc(r.place||"장소 미정")+'</span>' +
+              (r.detail ? '<span class="detail">'+esc(r.detail)+'</span>' : '') +
+              '</span></div>';
           }).join('') +
         '</div>';
       }).join('');
@@ -1615,6 +1620,17 @@
       var t = getTrip(el.dataset.trip);
       var listKey = el.dataset.list;
       t[listKey] = t[listKey].filter(function(i){return i.id!==el.dataset.item;});
+      touch(t); render(); commitAndSave(t.id);
+    },
+    moveRestaurant: function(el){
+      var t = getTrip(el.dataset.trip);
+      var listKey = el.dataset.list;
+      var list = t[listKey];
+      var dir = Number(el.dataset.dir);
+      var idx = list.findIndex(function(i){return i.id===el.dataset.item;});
+      var newIdx = idx + dir;
+      if(idx<0 || newIdx<0 || newIdx>=list.length) return;
+      var tmp = list[idx]; list[idx] = list[newIdx]; list[newIdx] = tmp;
       touch(t); render(); commitAndSave(t.id);
     },
     deleteRestoMenu: function(el){
@@ -1871,6 +1887,9 @@
     }
     var noteBox = document.querySelector('[data-note="1"]');
     if(noteBox){
+      var autoGrow = function(){ noteBox.style.height = "auto"; noteBox.style.height = noteBox.scrollHeight + "px"; };
+      autoGrow();
+      noteBox.addEventListener("input", autoGrow);
       noteBox.addEventListener("blur", function(){
         var before = snapshotState();
         var t = getTrip(this.dataset.id);
